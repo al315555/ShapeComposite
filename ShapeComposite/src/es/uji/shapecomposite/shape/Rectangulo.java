@@ -10,10 +10,11 @@ public class Rectangulo extends FormaComponent{
 		this.y1=y1;
 		this.y2=y2;
 	}
-
+	
 	@Override
 	public void dibuja() {
-		System.out.println("Rectangulo("+x1+","+y1+","+x2+","+y2+")");
+		String tabulacion=obtenerTabulacion();
+		System.out.println(tabulacion+"Rectangulo("+x1+","+y1+","+x2+","+y2+")");
 	}
 
 	@Override

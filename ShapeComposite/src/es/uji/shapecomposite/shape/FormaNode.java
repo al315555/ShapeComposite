@@ -8,12 +8,13 @@ public class FormaNode extends FormaComponent{
 	private List<FormaComponent> forma;
 	private String nombre;
 
+	
 	public FormaNode(String nombre){
 		super();
 		this.forma= new LinkedList<FormaComponent>();
 		this.nombre=nombre;
 	}
-
+	
 	@Override
 	public void desplazaRelativo(int x, int y) {
 		for(FormaComponent fc: forma)
@@ -22,20 +23,27 @@ public class FormaNode extends FormaComponent{
 
 	@Override
 	public void dibuja() {
-		System.out.println("Forma("+nombre+") {");
+		String tabulacion=obtenerTabulacion();
+		
+		System.out.println(tabulacion+"Forma("+nombre+") {");
+		
 		for(FormaComponent fc: forma){
-			fc.dibuja();
+			System.out.print(tabulacion);fc.dibuja();
 		}
-		System.out.println("}");
+		System.out.println(tabulacion+"}");
 	}
-
+	
 	@Override
 	public void anade(FormaComponent fc){
-		forma.add(fc);
+		if(fc.padre==null){
+			forma.add(fc);
+			fc.setPadre(this);
+		}
 	}
 
 	@Override
 	public void elimina(FormaComponent fc){
 		forma.remove(fc);
+		fc.setPadre(null);
 	}
 }

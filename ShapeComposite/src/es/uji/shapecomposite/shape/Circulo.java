@@ -9,10 +9,12 @@ public class Circulo extends FormaComponent{
 		this.y=y;
 		this.radio=radio;
 	}
+	
 
 	@Override
 	public void dibuja() {
-		System.out.println("Circulo("+x+", "+y+", "+radio+")");
+		String tabulacion=obtenerTabulacion();
+		System.out.println(tabulacion+"Circulo("+x+", "+y+", "+radio+")");
 	}
 
 	@Override
