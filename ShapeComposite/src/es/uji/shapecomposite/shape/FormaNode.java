@@ -23,8 +23,9 @@ public class FormaNode extends FormaComponent{
 	@Override
 	public void dibuja() {
 		System.out.println("Forma("+nombre+") {");
-		for(FormaComponent fc: forma)
+		for(FormaComponent fc: forma){
 			fc.dibuja();
+		}
 		System.out.println("}");
 	}
 
